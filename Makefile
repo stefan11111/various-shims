@@ -17,6 +17,10 @@ intltool:
 	touch ${DESTDIR}/usr/bin/intltool-extract
 	chmod 755 ${DESTDIR}/usr/bin/intltool-extract
 
+gettext:
+	touch ${DESTDIR}/usr/bin/msgfmt
+	chmod 755 ${DESTDIR}/usr/bin/msgfmt
+
 dbus:
 	touch ${DESTDIR}/usr/bin/dbus-cleanup-sockets
 	chmod 755 ${DESTDIR}/usr/bin/dbus-cleanup-sockets
@@ -37,4 +41,4 @@ dbus:
 	touch ${DESTDIR}/usr/bin/dbus-uuidgen
 	chmod 755 ${DESTDIR}/usr/bin/dbus-uuidgen
 
-.PHONY: all vala xmlto intltool dbus
+.PHONY: all vala xmlto intltool gettext dbus
