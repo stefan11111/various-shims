@@ -1,0 +1,30 @@
+        touch /usr/bin/xgettext
+        chmod 755 /usr/bin/xgettext
+        touch /usr/bin/msgmerge
+        chmod 755 /usr/bin/msgmerge
+        touch /usr/bin/msgfmt
+        chmod 755 /usr/bin/msgfmt
+        touch /usr/bin/gmsgfmt
+        chmod 755 /usr/bin/gmsgfmt
+        touch /usr/bin/msgexec
+        chmod 755 /usr/bin/msgexec
+        touch /usr/bin/msgfilter
+        chmod 755 /usr/bin/msgfilter
+        touch /usr/bin/msggrep
+        chmod 755 /usr/bin/msggrep
+        touch /usr/bin/msginit
+        chmod 755 /usr/bin/msginit
+        touch /usr/bin/msgunfmt
+        chmod 755 /usr/bin/msgunfmt
+        touch /usr/bin/msguniq
+        chmod 755 /usr/bin/msguniq
+        touch /usr/bin/ngettext
+        chmod 755 /usr/bin/ngettext
+        touch /usr/bin/recode-sr-latin
+        chmod 755 /usr/bin/recode-sr-latin
+        touch /usr/bin/msgmerge
+        chmod 755 /usr/bin/msgmerge
+        touch /usr/bin/msgfmt
+        chmod 755 /usr/bin/msgfmt
+        touch /usr/bin/gmsgfmt
+        chmod 755 /usr/bin/gmsgfmt

@@ -18,8 +18,11 @@ intltool:
 	chmod 755 ${DESTDIR}/usr/bin/intltool-extract
 
 gettext:
-	touch ${DESTDIR}/usr/bin/msgfmt
-	chmod 755 ${DESTDIR}/usr/bin/msgfmt
+	${CC} ${CFLAGS}  gettext/gettext_program.c -o gettext/gettext_program
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/xgettext
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgmerge
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgfmt
+	ln -rsf ${DESTDIR}/usr/bin/msgfmt ${DESTDIR}/usr/bin/gmsgfmt
 
 dbus:
 	touch ${DESTDIR}/usr/bin/dbus-cleanup-sockets
