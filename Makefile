@@ -10,13 +10,17 @@ xmlto:
 	chmod 755 ${DESTDIR}/usr/bin/xmlto
 
 intltool:
-	touch ${DESTDIR}/usr/bin/intltool-update
-	chmod 755 ${DESTDIR}/usr/bin/intltool-update
-	touch ${DESTDIR}/usr/bin/intltool-merge
-	chmod 755 ${DESTDIR}/usr/bin/intltool-merge
-	touch ${DESTDIR}/usr/bin/intltool-extract
-	chmod 755 ${DESTDIR}/usr/bin/intltool-extract
+#	touch ${DESTDIR}/usr/bin/intltool-update
+#	chmod 755 ${DESTDIR}/usr/bin/intltool-update
+#	touch ${DESTDIR}/usr/bin/intltool-merge
+#	chmod 755 ${DESTDIR}/usr/bin/intltool-merge
+#	touch ${DESTDIR}/usr/bin/intltool-extract
+#	chmod 755 ${DESTDIR}/usr/bin/intltool-extract
 
+	${CC} ${CFLAGS}  intltool/intltool_program.c -o intltool/intltool_program
+	cp -f intltool/intltool_program ${DESTDIR}/usr/bin/intltool-update
+	cp -f intltool/intltool_program ${DESTDIR}/usr/bin/intltool-merge
+	cp -f intltool/intltool_program ${DESTDIR}/usr/bin/intltool-extract
 gettext:
 	${CC} ${CFLAGS}  gettext/gettext_program.c -o gettext/gettext_program
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/xgettext
