@@ -51,6 +51,7 @@ gettext:
 	cp -f gettext/gettext ${DESTDIR}/usr/bin/gettext
 	ln -rsf ${DESTDIR}/usr/bin/gettext ${DESTDIR}/usr/bin/ngettext
 	${CC} ${CFLAGS} -nostdlib gettext/libgettextpo.c -o gettext/libgettextpo.so.0.5.10 ${LDFLAGS},-soname,libgettextpo.so.0
+	mkdir -p ${DESTDIR}/usr/lib64
 	cp -f gettext/libgettextpo.so.0.5.10 ${DESTDIR}/usr/lib64/libgettextpo.so.0.5.10
 	ln -rsf ${DESTDIR}/usr/lib64/libgettextpo.so.0.5.10 ${DESTDIR}/usr/lib64/libgettextpo.so.0
 	touch ${DESTDIR}/usr/bin/autopoint
