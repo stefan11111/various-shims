@@ -61,9 +61,13 @@ int main(int argc, char **argv)
     argv++;
     mkdir_p(*argv);
     for(char **p = argv + 1; *p; p++) {
-        char path[PATH_MAX + 1];
+        char path[PATH_MAX + 2];
         char *ptr = stpncpy(path, *argv, PATH_MAX >> 1);
-        strncpy(path, *p, PATH_MAX >> 1);
+        *ptr = '/';
+        ptr++;
+        char *tmp = strrchr(*p, '/');
+        tmp = tmp ? tmp + 1 : *p;
+        strncpy(ptr, tmp, PATH_MAX >> 1);
         FILE *f = fopen(path, "w");
         fclose(f);
     }
