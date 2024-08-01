@@ -9,6 +9,10 @@ xmlto:
 	touch ${DESTDIR}/usr/bin/xmlto
 	chmod 755 ${DESTDIR}/usr/bin/xmlto
 
+itstool:
+	${CC} ${CFLAGS}  itstool/itstool.c -o itstool/itstool
+	cp -f itstool/itstool ${DESTDIR}/usr/bin/itstool
+
 intltool:
 #	touch ${DESTDIR}/usr/bin/intltool-update
 #	chmod 755 ${DESTDIR}/usr/bin/intltool-update
@@ -77,4 +81,4 @@ dbus:
 	touch ${DESTDIR}/usr/bin/dbus-uuidgen
 	chmod 755 ${DESTDIR}/usr/bin/dbus-uuidgen
 
-.PHONY: all vala xmlto intltool gettext dbus
+.PHONY: all vala xmlto itstool intltool gettext dbus
