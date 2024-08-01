@@ -26,6 +26,7 @@ gettext:
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/xgettext
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgmerge
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgfmt
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msginit
 	ln -rsf ${DESTDIR}/usr/bin/msgfmt ${DESTDIR}/usr/bin/gmsgfmt
 
 dbus:
