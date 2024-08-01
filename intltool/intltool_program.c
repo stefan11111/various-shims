@@ -14,14 +14,14 @@ int main(int argc, char **argv)
     }
 
     for(char **p = argv; *p; p++) {
-        if (!strncmp(*p, "-o", sizeof("-o") - 1) {
+        if (!strncmp(*p, "-o", sizeof("-o") - 1)) {
             p++;
             FILE *f = fopen(*p, "w");
             fclose(f);
             return 0;
         }
 
-        if (!strncmp(*p, "--output-file=", sizeof("--output-file=") - 1) {
+        if (!strncmp(*p, "--output-file=", sizeof("--output-file=") - 1)) {
             FILE *f = fopen(*p + sizeof("--output-file=") - 1, "w");
             fclose(f);
             return 0;
