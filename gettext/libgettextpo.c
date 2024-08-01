@@ -1,3 +1,5 @@
+int libgettextpo_version = 0x001605;
+
 void* po_file_check_all () { return 0; }
 void* po_file_create () { return 0; }
 void* po_file_domain_header () { return 0; }
