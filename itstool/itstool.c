@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 
 int main(int argc, char **argv)
 {
@@ -11,7 +12,17 @@ int main(int argc, char **argv)
     for(char **p = argv; *p; p++) {
         if (!strncmp(*p, "-o", sizeof("-o") - 1) || !strncmp(*p, "--out", sizeof("--out") - 1)) {
             p++;
-            FILE *f = fopen(*p, "w");
+            char *ptr = strrchr(*p, '/');
+            if (ptr) {
+                *ptr = '\0';
+                mkdir(*p, 00644);
+                ptr++;
+            }
+            else {
+                ptr = *p;
+            }
+
+            FILE *f = fopen(ptr, "w");
             fclose(f);
             return 0;
         }
@@ -20,13 +31,33 @@ int main(int argc, char **argv)
     for(char **p = argv; *p; p++) {
         if (!strncmp(*p, "-m", sizeof("-m") - 1) || !strncmp(*p, "--merge", sizeof("--merge") - 1)) {
             p++;
-            FILE *f = fopen(*p, "w");
+            char *ptr = strrchr(*p, '/');
+            if (ptr) {
+                *ptr = '\0';
+                mkdir(*p, 00644);
+                ptr++;
+            }
+            else {
+                ptr = *p;
+            }
+
+            FILE *f = fopen(ptr, "w");
             fclose(f);
             return 0;
         }
     }
 
-    FILE *f = fopen(argv[argc - 1], "w");
+    char *ptr = strrchr(argv[argc - 1], '/');
+    if (ptr) {
+        *ptr = '\0';
+        mkdir(argv[argc - 1], 00644);
+        ptr++;
+    }
+    else {
+        ptr = argv[argc - 1];
+    }
+
+    FILE *f = fopen(ptr, "w");
     fclose(f);
     return 0;
 }
