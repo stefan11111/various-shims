@@ -9,7 +9,7 @@ int main(int argc, char **argv)
     }
 
     for(char **p = argv; *p; p++) {
-        if (!strncmp(*p, "-o", sizeof("-o") - 1) || !strncmp(*p, "--out", sizeof("--out")) {
+        if (!strncmp(*p, "-o", sizeof("-o") - 1) || !strncmp(*p, "--out", sizeof("--out") - 1)) {
             p++;
             FILE *f = fopen(*p, "w");
             fclose(f);
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     }
 
     for(char **p = argv; *p; p++) {
-        if (!strncmp(*p, "-m", sizeof("-m") - 1) || !strncmp(*p, "--merge", sizeof("--merge")) {
+        if (!strncmp(*p, "-m", sizeof("-m") - 1) || !strncmp(*p, "--merge", sizeof("--merge") - 1)) {
             p++;
             FILE *f = fopen(*p, "w");
             fclose(f);
