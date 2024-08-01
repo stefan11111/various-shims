@@ -30,8 +30,32 @@ gettext:
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/xgettext
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgmerge
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgfmt
-	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msginit
 	ln -rsf ${DESTDIR}/usr/bin/msgfmt ${DESTDIR}/usr/bin/gmsgfmt
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msginit
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgattrib
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgcat
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgcomm
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgconv
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgen
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgfilter
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msggrep
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgunfmt
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msguniq
+	${CC} ${CFLAGS}  gettext/gettext.c -o gettext/gettext
+	cp -f gettext/gettext ${DESTDIR}/usr/bin/gettext
+	ln -rsf ${DESTDIR}/usr/bin/gettext ${DESTDIR}/usr/bin/ngettext
+	touch ${DESTDIR}/usr/bin/autopoint
+	chmod 755 ${DESTDIR}/usr/bin/autopoint
+	touch ${DESTDIR}/usr/bin/envsubst
+	chmod 755 ${DESTDIR}/usr/bin/envsubst
+	touch ${DESTDIR}/usr/bin/gettextize
+	chmod 755 ${DESTDIR}/usr/bin/gettextize
+	touch ${DESTDIR}/usr/bin/msgcmp
+	chmod 755 touch ${DESTDIR}/usr/bin/msgcmp
+	touch ${DESTDIR}/usr/bin/msgexec
+	chmod 755 ${DESTDIR}/usr/bin/msgexec
+	touch ${DESTDIR}/usr/bin/recode-sr-latin
+	chmod 755 ${DESTDIR}/usr/bin/recode-sr-latin
 
 dbus:
 	touch ${DESTDIR}/usr/bin/dbus-cleanup-sockets
