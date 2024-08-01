@@ -1,3 +1,7 @@
+typedef void* po_message_t;
+typedef void* po_message_iterator_t;
+typedef void* po_file_t;
+
 void* po_file_check_all ();
 void* po_file_create ();
 void* po_file_domain_header ();
