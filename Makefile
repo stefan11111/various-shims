@@ -21,6 +21,10 @@ intltool:
 	cp -f intltool/intltool_program ${DESTDIR}/usr/bin/intltool-update
 	cp -f intltool/intltool_program ${DESTDIR}/usr/bin/intltool-merge
 	cp -f intltool/intltool_program ${DESTDIR}/usr/bin/intltool-extract
+	touch ${DESTDIR}/usr/bin/intltool-prepare
+	chmod 755 ${DESTDIR}/usr/bin/intltool-prepare
+	touch ${DESTDIR}/usr/bin/intltoolize
+	chmod 755 ${DESTDIR}/usr/bin/intltoolize
 gettext:
 	${CC} ${CFLAGS}  gettext/gettext_program.c -o gettext/gettext_program
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/xgettext
