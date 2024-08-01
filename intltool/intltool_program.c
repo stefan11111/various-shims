@@ -8,7 +8,7 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    if(argc == 2 && !strcmp(argv[1], "--version")) {
+    if(argc == 2 && !strncmp(argv[1], "--version", sizeof("--version") - 1)) {
         printf("%s (GNU gettext-tools) 0.22.4\n", argv[0]);
         return 0;
     }

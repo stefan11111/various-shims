@@ -4,25 +4,31 @@
 
 int main(int argc, char **argv)
 {
-    if(argc == 2 && !strcmp(argv[1], "--version")) {
+    if(argc < 2) {
+        return 0;
+    }
+
+    if(argc == 2 && !strncmp(argv[1], "--version", sizeof("--version") - 1)) {
         printf("%s (GNU gettext-tools) 0.22.4\n", argv[0]);
         return 0;
     }
 
-    int index = 0;
+    for(char **p = argv; *p; p++) {
+        if (!strncmp(*p, "-o", sizeof("-o") - 1)) {
+            p++;
+            FILE *f = fopen(*p, "w");
+            fclose(f);
+            return 0;
+        }
 
-    for(int i = 1; i <= argc; i++) {
-        if(!strcmp(argv[i - 1], "-o")) {
-            index = i;
-            break;
+        if (!strncmp(*p, "--output-file=", sizeof("--output-file=") - 1)) {
+            FILE *f = fopen(*p + sizeof("--output-file=") - 1, "w");
+            fclose(f);
+            return 0;
         }
     }
 
-    if(index == 0) {
-        return 0;
-    }
-
-    FILE *f = fopen(argv[index], "w");
+    FILE *f = fopen(argv[argc - 1], "w");
     fclose(f);
     return 0;
 }
