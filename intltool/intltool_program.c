@@ -13,7 +13,7 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    for(char **p = argv, *p; p++) {
+    for(char **p = argv; *p; p++) {
         if (!strncmp(*p, "-o", sizeof("-o") - 1) {
             p++;
             FILE *f = fopen(*p, "w");
