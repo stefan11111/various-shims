@@ -51,7 +51,7 @@ gettext:
 	touch ${DESTDIR}/usr/bin/gettextize
 	chmod 755 ${DESTDIR}/usr/bin/gettextize
 	touch ${DESTDIR}/usr/bin/msgcmp
-	chmod 755 touch ${DESTDIR}/usr/bin/msgcmp
+	chmod 755 ${DESTDIR}/usr/bin/msgcmp
 	touch ${DESTDIR}/usr/bin/msgexec
 	chmod 755 ${DESTDIR}/usr/bin/msgexec
 	touch ${DESTDIR}/usr/bin/recode-sr-latin
