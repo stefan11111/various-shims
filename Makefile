@@ -4,6 +4,8 @@ all:
 vala:
 	touch ${DESTDIR}/usr/bin/vala
 	chmod 755 ${DESTDIR}/usr/bin/vala
+	touch ${DESTDIR}/usr/bin/valac
+	chmod 755 ${DESTDIR}/usr/bin/valac
 
 xmlto:
 	touch ${DESTDIR}/usr/bin/xmlto
