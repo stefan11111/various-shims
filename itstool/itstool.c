@@ -67,7 +67,7 @@ int main(int argc, char **argv)
         ptr++;
         char *tmp = strrchr(*p, '/');
         tmp = tmp ? tmp + 1 : *p;
-        strncpy(ptr, tmp, PATH_MAX >> 1);
+        *stpncpy(ptr, tmp, PATH_MAX >> 1) = '\0';
         FILE *f = fopen(path, "w");
         fclose(f);
     }
