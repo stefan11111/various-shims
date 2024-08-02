@@ -20,6 +20,10 @@ static void mkdir_p_and_touch (char *path)
 
 static void mkdir_p (char *path)
 {
+    char *tmp = strrchr(path, '/');
+    if (tmp && *(tmp + 1) == '\0') {
+        *tmp = '\0';
+    }
     for(char *ptr = strchr(path, '/'); ptr; ptr = strchr(ptr, '/')) {
         *ptr = '\0';
         mkdir(path, MASK);
