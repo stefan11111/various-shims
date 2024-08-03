@@ -101,4 +101,4 @@ dbus:
 	touch ${DESTDIR}/usr/bin/dbus-uuidgen
 	chmod 755 ${DESTDIR}/usr/bin/dbus-uuidgen
 
-.PHONY: all vala xmlto itstool intltool gettext dbus
+.PHONY: all vala xmlto itstool polkit intltool gettext dbus
