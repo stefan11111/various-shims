@@ -15,6 +15,17 @@ itstool:
 	${CC} ${CFLAGS}  itstool/itstool.c -o itstool/itstool
 	cp -f itstool/itstool ${DESTDIR}/usr/bin/itstool
 
+polkit:
+	${CC} ${CFLAGS} -fPIC -nostdlib polkit/libpolkit-gobject-1.c -o polkit/libpolkit-gobject-1.so.0.0.0 ${LDFLAGS} -shared -Wl,-soname,libpolkit-gobject-1.so.0
+	mkdir -p ${DESTDIR}/usr/lib64
+	cp -f polkit/libpolkit-gobject-1.so.0.0.0 ${DESTDIR}/usr/lib64/libpolkit-gobject-1.so.0.0.0
+	ln -rsf ${DESTDIR}/usr/lib64/libpolkit-gobject-1.so.0.0.0 ${DESTDIR}/usr/lib64/libpolkit-gobject-1.so.0
+	ln -rsf ${DESTDIR}/usr/lib64/libpolkit-gobject-1.so.0 /usr/lib64/libpolkit-gobject-1.so
+	mkdir -p ${DESTDIR}/usr/include/polkit-1
+	cp -rf polkit/headers ${DESTDIR}/usr/include/polkit-1/polkit
+	mkdir -p ${DESTDIR}/usr/lib64/pkgconfig
+	cp -f polkit/polkit-gobject-1.pc ${DESTDIR}/usr/lib64/pkgconfig/polkit-gobject-1.pc
+
 intltool:
 #	touch ${DESTDIR}/usr/bin/intltool-update
 #	chmod 755 ${DESTDIR}/usr/bin/intltool-update
