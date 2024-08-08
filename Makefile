@@ -44,7 +44,6 @@ intltool:
 	chmod 755 ${DESTDIR}/usr/bin/intltoolize
 gettext:
 	${CC} ${CFLAGS}  gettext/gettext_program.c -o gettext/gettext_program
-	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/xgettext
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgmerge
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgfmt
 	ln -rsf ${DESTDIR}/usr/bin/msgfmt ${DESTDIR}/usr/bin/gmsgfmt
@@ -61,6 +60,8 @@ gettext:
 	${CC} ${CFLAGS}  gettext/gettext.c -o gettext/gettext
 	cp -f gettext/gettext ${DESTDIR}/usr/bin/gettext
 	ln -rsf ${DESTDIR}/usr/bin/gettext ${DESTDIR}/usr/bin/ngettext
+	${CC} ${CFLAGS}  gettext/xgettext.c -o gettext/xgettext
+	cp -f gettext/xgettext ${DESTDIR}/usr/bin/xgettext
 	${CC} ${CFLAGS} -fPIC -nostdlib gettext/libgettextpo.c -o gettext/libgettextpo.so.0.5.10 ${LDFLAGS} -shared -Wl,-soname,libgettextpo.so.0
 	mkdir -p ${DESTDIR}/usr/lib64
 	cp -f gettext/libgettextpo.so.0.5.10 ${DESTDIR}/usr/lib64/libgettextpo.so.0.5.10
