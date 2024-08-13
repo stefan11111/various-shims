@@ -69,6 +69,8 @@ gettext:
 	ln -rsf ${DESTDIR}/usr/lib64/libgettextpo.so.0 ${DESTDIR}/usr/lib64/libgettextpo.so
 	mkdir -p ${DESTDIR}/usr/include
 	cp -f gettext/gettext-po.h ${DESTDIR}/usr/include/gettext-po.h
+	mkdir -p ${DESTDIR}/usr/share/aclocal
+	cp -f gettext/aclocal/* ${DESTDIR}/usr/share/aclocal/
 	touch ${DESTDIR}/usr/bin/autopoint
 	chmod 755 ${DESTDIR}/usr/bin/autopoint
 	touch ${DESTDIR}/usr/bin/envsubst
