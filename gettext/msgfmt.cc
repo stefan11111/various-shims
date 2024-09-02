@@ -17,7 +17,18 @@ int main(int argc, char **argv)
         if (!strncmp(*p, "-o", sizeof("-o") - 1)) {
             p++;
             FILE *f = fopen(*p, "w");
-            if (!strncmp(*p, "freedesktop.org.xml", sizeof("freedesktop.org.xml") - 1)) {
+            char *ptr = *p;
+            char *i = ptr;
+            while (*i) {
+                if (*i == '/') {
+                    i++;
+                    if (*i != '\0') {
+                        ptr = i;
+                    }
+                }
+                i++;
+            }
+            if (!strncmp(ptr, "freedesktop.org.xml", sizeof("freedesktop.org.xml") - 1)) {
                 char *str = (char*)
                     #include "freedesktop.org.xml"
                 ;
@@ -29,7 +40,18 @@ int main(int argc, char **argv)
 
         if (!strncmp(*p, "--output-file=", sizeof("--output-file=") - 1)) {
             FILE *f = fopen(*p + sizeof("--output-file=") - 1, "w");
-            if (!strncmp(*p + sizeof("--output-file=") - 1, "freedesktop.org.xml", sizeof("freedesktop.org.xml") - 1)) {
+            char *ptr = *p + sizeof("--output-file=") - 1;
+            char *i = ptr;
+            while (*i) {
+                if (*i == '/') {
+                    i++;
+                    if (*i != '\0') {
+                        ptr = i;
+                    }
+                }
+                i++;
+            }
+            if (!strncmp(ptr, "freedesktop.org.xml", sizeof("freedesktop.org.xml") - 1)) {
                 char *str = (char*)
                     #include "freedesktop.org.xml"
                 ;
