@@ -9,7 +9,16 @@ int main(int argc, char **argv)
             if (!f) {
                 return 0;
             }
-            fprintf(f, "# INTLTOOL_MAKEFILE\nall:\n");
+            fprintf(f, "# INTLTOOL_MAKEFILE\n"
+                       "all:\n"
+                       "\n"
+                       "clean:\n"
+                       "\n"
+                       "install:\n"
+                       "\n"
+                       "uninstall\n"
+                       "\n"
+                       "PHONY: all clean install uninstall\n");
             fclose(f);
             return 0;
         }
