@@ -55,7 +55,7 @@ gettext:
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msggrep
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgunfmt
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msguniq
-	${CXX} ${CXXFLAGS}  gettext/msgfmt.c -o gettext/msgfmt
+	${CXX} ${CXXFLAGS}  gettext/msgfmt.cc -o gettext/msgfmt
 	cp -f gettext/msgfmt ${DESTDIR}/usr/bin/msgfmt
 	ln -rsf ${DESTDIR}/usr/bin/msgfmt ${DESTDIR}/usr/bin/gmsgfmt
 	${CC} ${CFLAGS}  gettext/gettext.c -o gettext/gettext
