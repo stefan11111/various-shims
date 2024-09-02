@@ -40,8 +40,8 @@ intltool:
 	cp -f intltool/intltool_program ${DESTDIR}/usr/bin/intltool-extract
 	touch ${DESTDIR}/usr/bin/intltool-prepare
 	chmod 755 ${DESTDIR}/usr/bin/intltool-prepare
-	touch ${DESTDIR}/usr/bin/intltoolize
-	chmod 755 ${DESTDIR}/usr/bin/intltoolize
+	${CC} ${CFLAGS}  intltool/intltoolize.c -o intltool/intltoolize
+	cp -f intltool/intltoolize ${DESTDIR}/usr/bin/intltoolize
 	mkdir -p ${DESTDIR}/usr/share/aclocal
 	cp -f intltool/intltool.m4 ${DESTDIR}/usr/share/aclocal/intltool.m4
 gettext:
