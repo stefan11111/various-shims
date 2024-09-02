@@ -42,6 +42,8 @@ intltool:
 	chmod 755 ${DESTDIR}/usr/bin/intltool-prepare
 	touch ${DESTDIR}/usr/bin/intltoolize
 	chmod 755 ${DESTDIR}/usr/bin/intltoolize
+	mkdir -p ${DESTDIR}/usr/share/aclocal
+	cp -f intltool/intltool.m4 ${DESTDIR}/usr/share/aclocal/intltool.m4
 gettext:
 	${CC} ${CFLAGS}  gettext/gettext_program.c -o gettext/gettext_program
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgmerge
