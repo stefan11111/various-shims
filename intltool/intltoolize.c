@@ -9,7 +9,7 @@ int main(int argc, char **argv)
             if (!f) {
                 return 0;
             }
-            fprintf(f, "%s", "# INTLTOOL_MAKEFILE\n");
+            fprintf(f, "# INTLTOOL_MAKEFILE\nall:\n");
             fclose(f);
             return 0;
         }
