@@ -16,7 +16,7 @@ int main(int argc, char **argv)
                        "\n"
                        "install:\n"
                        "\n"
-                       "uninstall\n"
+                       "uninstall:\n"
                        "\n"
                        "PHONY: all clean install uninstall\n");
             fclose(f);
