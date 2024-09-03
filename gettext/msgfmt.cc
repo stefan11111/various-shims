@@ -29,10 +29,9 @@ int main(int argc, char **argv)
                 i++;
             }
             if (!strncmp(ptr, "freedesktop.org.xml", sizeof("freedesktop.org.xml") - 1)) {
-                char str[] =
-                    #include "freedesktop.org.xml"
-                ;
-                fprintf(f, "%s", str);
+                fprintf(f, "%s",
+                                #include "freedesktop.org.xml"
+                                                              );
             }
             fclose(f);
             return 0;
@@ -52,10 +51,9 @@ int main(int argc, char **argv)
                 i++;
             }
             if (!strncmp(ptr, "freedesktop.org.xml", sizeof("freedesktop.org.xml") - 1)) {
-                char str[] =
-                    #include "freedesktop.org.xml"
-                ;
-                fprintf(f, "%s", str);
+                fprintf(f, "%s",
+                                #include "freedesktop.org.xml"
+                                                              );
             }
             fclose(f);
             return 0;
