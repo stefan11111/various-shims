@@ -16,14 +16,12 @@ int main(int argc, char **argv)
     for(char **p = argv; *p; p++) {
         if (!strncmp(*p, "-o", sizeof("-o") - 1)) {
             p++;
-            FILE *f = fopen(*p, "w");
-            fclose(f);
+            fopen(*p, "w");
             return 0;
         }
 
         if (!strncmp(*p, "--output-file=", sizeof("--output-file=") - 1)) {
-            FILE *f = fopen(*p + sizeof("--output-file=") - 1, "w");
-            fclose(f);
+            fopen(*p + sizeof("--output-file=") - 1, "w");
             return 0;
         }
 
@@ -31,23 +29,18 @@ int main(int argc, char **argv)
             p++;
             char *dst = malloc(strlen(*p) + sizeof(".po"));
             *stpncpy(stpncpy(dst, *p, strlen(*p)), ".po", sizeof(".po") - 1) = '\0';
-            FILE *f = fopen(dst, "w");
-            fclose(f);
-            free(dst);
+            fopen(dst, "w");
             return 0;
         }
 
-        if (!strncmp(*p, "--output-file=", sizeof("--output-file=") - 1)) {
-            char *dst = malloc(strlen(*p + sizeof("--output-file=") - 1) + sizeof(".po"));
-            *stpncpy(stpncpy(dst, *p + sizeof("--output-file=") - 1, strlen(*p)), ".po", sizeof(".po") - 1) = '\0';
-            FILE *f = fopen(dst, "w");
-            fclose(f);
-            free(dst);
+        if (!strncmp(*p, "--default-domain=", sizeof("--default-domain=") - 1)) {
+            char *dst = malloc(strlen(*p + sizeof("--default-domain=") - 1) + sizeof(".po"));
+            *stpncpy(stpncpy(dst, *p + sizeof("--default-domain=") - 1, strlen(*p)), ".po", sizeof(".po") - 1) = '\0';
+            fopen(dst, "w");
             return 0;
         }
     }
 
-    FILE *f = fopen("messages.po", "w");
-    fclose(f);
+    fopen("messages.po", "w");
     return 0;
 }

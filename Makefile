@@ -47,6 +47,8 @@ intltool:
 gettext:
 	${CC} ${CFLAGS}  gettext/gettext_program.c -o gettext/gettext_program
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgmerge
+	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgfmt
+	ln -rsf ${DESTDIR}/usr/bin/msgfmt ${DESTDIR}/usr/bin/gmsgfmt
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msginit
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgattrib
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgcat
@@ -57,9 +59,6 @@ gettext:
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msggrep
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msgunfmt
 	cp -f gettext/gettext_program ${DESTDIR}/usr/bin/msguniq
-	${CXX} ${CXXFLAGS}  gettext/msgfmt.cc -o gettext/msgfmt
-	cp -f gettext/msgfmt ${DESTDIR}/usr/bin/msgfmt
-	ln -rsf ${DESTDIR}/usr/bin/msgfmt ${DESTDIR}/usr/bin/gmsgfmt
 	${CC} ${CFLAGS}  gettext/gettext.c -o gettext/gettext
 	cp -f gettext/gettext ${DESTDIR}/usr/bin/gettext
 	ln -rsf ${DESTDIR}/usr/bin/gettext ${DESTDIR}/usr/bin/ngettext

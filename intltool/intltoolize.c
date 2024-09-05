@@ -19,7 +19,6 @@ int main(int argc, char **argv)
                        "uninstall:\n"
                        "\n"
                        "PHONY: all clean install uninstall\n");
-            fclose(f);
             return 0;
         }
     }

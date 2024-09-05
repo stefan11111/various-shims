@@ -14,8 +14,8 @@ static void mkdir_p_and_touch (char *path)
         *ptr = '/';
         ptr++;
     }
-    FILE *f = fopen(path, "w");
-    fclose(f);
+    fopen(path, "w");
+    /* after this, return from main() */
 }
 
 static void mkdir_p (char *path)
@@ -72,8 +72,7 @@ int main(int argc, char **argv)
         char *tmp = strrchr(*p, '/');
         tmp = tmp ? tmp + 1 : *p;
         *stpncpy(ptr, tmp, PATH_MAX >> 1) = '\0';
-        FILE *f = fopen(path, "w");
-        fclose(f);
+        fopen(path, "w");
     }
     return 0;
 }
