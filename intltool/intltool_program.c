@@ -16,17 +16,17 @@ int main(int argc, char **argv)
     for(char **p = argv; *p; p++) {
         if (!strncmp(*p, "-o", sizeof("-o") - 1)) {
             p++;
-            fopen(*p, "w");
+            (void)!fopen(*p, "w");
             return 0;
         }
 
         if (!strncmp(*p, "--output-file=", sizeof("--output-file=") - 1)) {
-            fopen(*p + sizeof("--output-file=") - 1, "w");
+            (void)!fopen(*p + sizeof("--output-file=") - 1, "w");
             return 0;
         }
     }
 #if 0
-    fopen(argv[argc - 1], "w");
+    (void)!fopen(argv[argc - 1], "w");
 #endif
     return 0;
 }
