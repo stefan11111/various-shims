@@ -25,8 +25,6 @@ int main(int argc, char **argv)
             return 0;
         }
     }
-#if 0
     (void)!fopen(argv[argc - 1], "w");
-#endif
     return 0;
 }
